@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ABES Work - Dashboard</title>
+
+    <link rel="stylesheet" href="abes.css">
+
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <div class="logo-circle">A</div>
+            <div>
+                <h2>ABES</h2>
+                <span>WORK</span>
+            </div>
+        </div>
+
+        <ul class="menu">
+
+            <li class="active" onclick="showPage('dashboard', this)">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </li>
+
+            <li onclick="showPage('attendance', this)">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Attendance</span>
+            </li>
+
+            <li onclick="showPage('timetable', this)">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Time Table</span>
+            </li>
+
+            <li onclick="showPage('notices', this)">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notices</span>
+            </li>
+
+            <li onclick="showPage('profile', this)">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </li>
+
+        </ul>
+
+        <div class="sidebar-bottom">
+            <li onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </li>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="menu-btn" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    id="searchInput"
+                >
+            </div>
+
+            <div class="top-right">
+
+                <div class="notification">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>3</span>
+                </div>
+
+                <div class="user">
+                    <div class="avatar">SG</div>
+
+                    <div class="user-info">
+                        <strong>Sanskar Gaur</strong>
+                        <small>Student</small>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content">
+
+
+            <!-- DASHBOARD -->
+            <div id="dashboard" class="page active-page">
+
+                <div class="welcome">
+                    <div>
+                        <h1>Welcome back, Sanskar 👋</h1>
+                        <p>Here's what's happening with your academics today.</p>
+                    </div>
+
+                    <button class="primary-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Quick Action
+                    </button>
+                </div>
+
+
+                <!-- STAT CARDS -->
+                <div class="cards">
+
+                    <div class="card">
+                        <div class="card-icon blue">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+
+                        <div>
+                            <p>Attendance</p>
+                            <h2>82.5%</h2>
+                            <small class="green">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                4.2% this month
+                            </small>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-icon purple">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+
+                        <div>
+                            <p>Subjects</p>
+                            <h2>8</h2>
+                            <small>Currently enrolled</small>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-icon orange">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+
+                        <div>
+                            <p>Assignments</p>
+                            <h2>12</h2>
+                            <small>4 pending</small>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-icon green">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+                        <div>
+                            <p>Notices</p>
+                            <h2>3</h2>
+                            <small>New notifications</small>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- LOWER SECTION -->
+                <div class="dashboard-grid">
+
+
+                    <!-- TODAY'S CLASSES -->
+                    <div class="panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <h3>Today's Classes</h3>
+                                <p>Your schedule for today</p>
+                            </div>
+
+                            <button class="view-btn"
+                                onclick="showPage('timetable')">
+                                View All
+                            </button>
+                        </div>
+
+
+                        <div class="class-item">
+
+                            <div class="time">
+                                <strong>09:00</strong>
+                                <span>10:00 AM</span>
+                            </div>
+
+                            <div class="class-line"></div>
+
+                            <div class="class-details">
+                                <h4>Data Structures</h4>
+                                <p>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Room 204
+                                </p>
+                            </div>
+
+                            <span class="badge ongoing">
+                                Ongoing
+                            </span>
+
+                        </div>
+
+
+                        <div class="class-item">
+
+                            <div class="time">
+                                <strong>10:00</strong>
+                                <span>11:00 AM</span>
+                            </div>
+
+                            <div class="class-line"></div>
+
+                            <div class="class-details">
+                                <h4>Database Management</h4>
+                                <p>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Room 305
+                                </p>
+                            </div>
+
+                            <span class="badge upcoming">
+                                Upcoming
+                            </span>
+
+                        </div>
+
+
+                        <div class="class-item">
+
+                            <div class="time">
+                                <strong>11:15</strong>
+                                <span>12:15 PM</span>
+                            </div>
+
+                            <div class="class-line"></div>
+
+                            <div class="class-details">
+                                <h4>Operating System</h4>
+                                <p>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Lab 2
+                                </p>
+                            </div>
+
+                            <span class="badge upcoming">
+                                Upcoming
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- NOTICES -->
+                    <div class="panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <h3>Latest Notices</h3>
+                                <p>Recent announcements</p>
+                            </div>
+
+                            <button class="view-btn"
+                                onclick="showPage('notices')">
+                                View All
+                            </button>
+                        </div>
+
+
+                        <div class="notice">
+
+                            <div class="notice-icon">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+
+                            <div>
+                                <h4>Internal Assessment</h4>
+                                <p>
+                                    IA examinations will begin next week.
+                                </p>
+                                <small>2 hours ago</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="notice">
+
+                            <div class="notice-icon">
+                                <i class="fa-solid fa-calendar"></i>
+                            </div>
+
+                            <div>
+                                <h4>Holiday Notice</h4>
+                                <p>
+                                    College will remain closed on Monday.
+                                </p>
+                                <small>Yesterday</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="notice">
+
+                            <div class="notice-icon">
+                                <i class="fa-solid fa-file"></i>
+                            </div>
+
+                            <div>
+                                <h4>Assignment Submission</h4>
+                                <p>
+                                    Submit your assignment before Friday.
+                                </p>
+                                <small>2 days ago</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ATTENDANCE -->
+            <div id="attendance" class="page">
+
+                <div class="page-title">
+                    <h1>Attendance</h1>
+                    <p>Check your subject-wise attendance.</p>
+                </div>
+
+                <div class="attendance-card">
+
+                    <div class="attendance-circle">
+                        <span>82.5%</span>
+                        <small>Overall</small>
+                    </div>
+
+                    <div class="attendance-info">
+                        <h2>Good Attendance</h2>
+                        <p>
+                            You have maintained an overall attendance
+                            of 82.5%.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Classes</th>
+                                <th>Present</th>
+                                <th>Attendance</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Data Structures</td>
+                                <td>40</td>
+                                <td>35</td>
+                                <td>
+                                    <span class="percentage good">
+                                        87.5%
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>DBMS</td>
+                                <td>38</td>
+                                <td>31</td>
+                                <td>
+                                    <span class="percentage good">
+                                        81.5%
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Operating System</td>
+                                <td>35</td>
+                                <td>27</td>
+                                <td>
+                                    <span class="percentage average">
+                                        77.1%
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Computer Networks</td>
+                                <td>42</td>
+                                <td>38</td>
+                                <td>
+                                    <span class="percentage good">
+                                        90.4%
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- TIMETABLE -->
+            <div id="timetable" class="page">
+
+                <div class="page-title">
+                    <h1>Time Table</h1>
+                    <p>Your weekly class schedule.</p>
+                </div>
+
+                <div class="timetable">
+
+                    <div class="day">
+                        <h3>Monday</h3>
+
+                        <div class="subject">
+                            <strong>Data Structures</strong>
+                            <span>09:00 - 10:00</span>
+                        </div>
+
+                        <div class="subject">
+                            <strong>DBMS</strong>
+                            <span>10:00 - 11:00</span>
+                        </div>
+
+                        <div class="subject">
+                            <strong>Operating System</strong>
+                            <span>11:15 - 12:15</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="day">
+                        <h3>Tuesday</h3>
+
+                        <div class="subject">
+                            <strong>Computer Networks</strong>
+                            <span>09:00 - 10:00</span>
+                        </div>
+
+                        <div class="subject">
+                            <strong>Mathematics</strong>
+                            <span>10:00 - 11:00</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="day">
+                        <h3>Wednesday</h3>
+
+                        <div class="subject">
+                            <strong>DBMS Lab</strong>
+                            <span>09:00 - 11:00</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NOTICES -->
+            <div id="notices" class="page">
+
+                <div class="page-title">
+                    <h1>Notices</h1>
+                    <p>Latest college announcements.</p>
+                </div>
+
+                <div class="notice-list">
+
+                    <div class="big-notice">
+                        <div class="notice-icon">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+
+                        <div>
+                            <h3>Internal Assessment</h3>
+                            <p>
+                                Internal assessment examinations
+                                will begin next week.
+                            </p>
+                            <small>Posted 2 hours ago</small>
+                        </div>
+                    </div>
+
+
+                    <div class="big-notice">
+                        <div class="notice-icon">
+                            <i class="fa-solid fa-calendar"></i>
+                        </div>
+
+                        <div>
+                            <h3>Holiday Notice</h3>
+                            <p>
+                                College will remain closed on Monday.
+                            </p>
+                            <small>Posted yesterday</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE -->
+            <div id="profile" class="page">
+
+                <div class="page-title">
+                    <h1>My Profile</h1>
+                    <p>Your student information.</p>
+                </div>
+
+
+                <div class="profile-card">
+
+                    <div class="large-avatar">
+                        SG
+                    </div>
+
+                    <h2>Sanskar Gaur</h2>
+                    <p>Student</p>
+
+                    <div class="profile-details">
+
+                        <div>
+                            <span>Roll Number</span>
+                            <strong>2024CSE101</strong>
+                        </div>
+
+                        <div>
+                            <span>Branch</span>
+                            <strong>Computer Science</strong>
+                        </div>
+
+                        <div>
+                            <span>Year</span>
+                            <strong>2nd Year</strong>
+                        </div>
+
+                        <div>
+                            <span>Email</span>
+                            <strong>student@example.com</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="abes.js"></script>
+
+</body>
+</html>
